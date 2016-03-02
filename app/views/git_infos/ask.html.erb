@@ -1,6 +1,8 @@
 <h1> Enter a github username </h1>
 
-<%= form_tag git_infos_show_path do %>
-  <%= text_field_tag :time_zone %>
-  <%= button_tag 'BLASTOFF!!!!!' %>
+<%= form_tag git_infos_show_path  do %>
+  <div id="box-shadow">
+    <%= text_field_tag :user_name %>
+    <%= button_tag 'BLASTOFF!!!!!' %>
+  </div>
 <% end %>

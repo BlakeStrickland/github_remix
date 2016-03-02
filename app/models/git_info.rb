@@ -1,12 +1,14 @@
 class GitInfo
-  attr_accessor :information
-  def initialize(user_name: username)
-    @information = HTTParty.get("https://api.github.com/users/blakestrickland/repos?token=#{ENV['GITHUB_KEY']}")
+  attr_accessor :user_name
+  def initialize(user_name)
+    username = user_name
+    @information = HTTParty.get("https://api.github.com/users/#{username}/repos?token=#{ENV['GITHUB_KEY']}")
   end
   def list_of_repos
     list = []
     @information.each do |x|
-      list << x
+      list << x['name']
     end
+    list
   end
 end

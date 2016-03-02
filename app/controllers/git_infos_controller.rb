@@ -3,7 +3,6 @@ class GitInfosController < ApplicationController
   end
 
   def show
-   b = GitInfo.new(user_name: "blakestrickland")
-   render json: b
+   @user_repo_list = GitInfo.new(params[:user_name])
   end
 end
