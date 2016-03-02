@@ -3,6 +3,7 @@ class GitInfo
   def initialize(user_name)
     username = user_name
     @information = HTTParty.get("https://api.github.com/users/#{username}/repos?token=#{ENV['GITHUB_KEY']}")
+    @name = @information.first['owner']['login']
   end
   def list_of_repos
     list = []
